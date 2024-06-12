@@ -1,0 +1,74 @@
+[
+    {   
+        "model": "content.photo",
+        "pk": 1,
+        "fields": {
+            "image": "gallery/photos/corporate_madina-1.jpg",
+            "photoset": "1",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 2,
+        "fields": {
+            "image": "gallery/photos/corporate_madina-2.jpg",
+            "photoset": "1",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 3,
+        "fields": {
+            "image": "gallery/photos/biz_achildik-1.jpg",
+            "photoset": "2",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 4,
+        "fields": {
+            "image": "gallery/photos/biz_achildik-2.jpg",
+            "photoset": "2",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 5,
+        "fields": {
+            "image": "gallery/photos/pizza_party-1.jpg",
+            "photoset": "3",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 6,
+        "fields": {
+            "image": "gallery/photos/pizza_party-2.jpg",
+            "photoset": "3",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 7,
+        "fields": {
+            "image": "gallery/photos/sing-1.jpg",
+            "photoset": "4",
+            "pub_date": "2015-10-09"
+        }
+    },
+    {   
+        "model": "content.photo",
+        "pk": 8,
+        "fields": {
+            "image": "gallery/photos/sing-2.jpg",
+            "photoset": "4",
+            "pub_date": "2015-10-09"
+        }
+    }
+]

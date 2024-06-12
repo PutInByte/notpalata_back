@@ -1,0 +1,18 @@
+[
+    {   
+        "model": "notary.recipient",
+        "pk": 1,
+        "fields": {
+            "name": "Почта нот. палаты",
+            "email": "not.palata.kr@gmail.com"
+        }
+    },
+    {   
+        "model": "notary.EducationalCentre",
+        "pk": 1,
+        "fields": {
+            "name": "Почта обр. центра",
+            "email": "schoolnotary@gmail.com"
+        }
+    }
+]
