@@ -37,6 +37,7 @@ THIRD_PARTY_APPS = [
     'django_admin_logs',
     'django_extensions',
     'import_export',
+    "django_summernote",
 ]
 
 if not PRODUCTION:
@@ -142,6 +143,8 @@ LANGUAGES = (
     ('ky', gettext_lazy('Kyrgyz')),
     ('en', gettext_lazy('English')),
 )
+
+from .summernote import SUMMERNOTE_CONFIG
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

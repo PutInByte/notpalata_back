@@ -4,6 +4,8 @@ from django.http.request import HttpRequest
 from django.template.response import TemplateResponse
 from modeltranslation.admin import TabbedTranslationAdmin
 
+from django_summernote.admin import SummernoteModelAdmin
+
 from ..mixins import AdminFieldMixin, AdminMultiInputMixin
 from ..models import News, NewsImage
 
@@ -28,7 +30,7 @@ def make_unpinned(modeladmin, request, queryset):
 
 
 @admin.register(News)
-class NewsAdmin(AdminFieldMixin, AdminMultiInputMixin, TabbedTranslationAdmin):
+class NewsAdmin(AdminFieldMixin, AdminMultiInputMixin, TabbedTranslationAdmin, SummernoteModelAdmin):
     inlines = (NewsImageImageInline,)
     prepopulated_fields = {'slug': ('title',)}
 
@@ -43,7 +45,8 @@ class NewsAdmin(AdminFieldMixin, AdminMultiInputMixin, TabbedTranslationAdmin):
     fields = ['title', 'slug', 'description', ('main_image', 'get_little_image',), 'video', 'is_pinned', 'date']
 
     actions = [make_pinned, make_unpinned]
-    
+    summernote_fields = ('description',)
+
     def changelist_view(self, request: HttpRequest, extra_context=None) -> TemplateResponse:
         pinned_count = News.objects.filter(is_pinned=True).count()
         if pinned_count > 2:
