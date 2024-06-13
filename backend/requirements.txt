@@ -21,6 +21,7 @@ django-import-export==3.3.3
 django-jazzmin==2.6.0
 django-modeltranslation==0.18.11
 djangorestframework==3.14.0
+django-summernote==0.8.20.0 
 drf-spectacular==0.26.5
 drf-yasg==1.21.7
 et-xmlfile==1.1.0

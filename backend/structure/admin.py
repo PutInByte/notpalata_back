@@ -1,5 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
+from django_summernote.admin import SummernoteModelAdmin
 
 from content.mixins import AdminFieldMixin
 from structure.models import (Comission, ComissionWorker, GeneralAssembly, GeneralAssemblyWorker, NotaryCouncil,
