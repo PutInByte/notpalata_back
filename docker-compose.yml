@@ -1,16 +1,52 @@
-version: "3"
 services:
   postgres:
     container_name: notpal_postgres
     image: postgres:14-alpine
     env_file:
       - ./backend/.env
-    expose:
-      - 5470
     volumes:
-      - pgdata:/var/lib/postgresql/data/
+      - ./pgdata:/var/lib/postgresql/data/
+    networks:
+      - notpal_prod_network
+
+  nginx:
+    container_name: notpal_prod_nginx
+    build: ./nginx
+    ports:
+      - 8086:8001
+    depends_on:
+      - api
+    volumes:
+      - ./static_root:/static_root
+      - ./media_storage:/media_storage
     restart: unless-stopped
-    command: -p 5470
+
+    networks:
+      - notpal_prod_network
+  
+  redis:
+    container_name: notpal_prod_redis
+    image: redis:7.2.2-alpine
+    expose:
+      - 6379
+    restart: unless-stopped
+    networks:
+      - notpal_prod_network
+
+  celery:
+    container_name: notpal_prod_celery
+    build:
+      context: ./backend
+    command: celery -A core worker -l INFO
+    depends_on:
+      - redis
+      - api
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+    networks:
+      - notpal_prod_network
 
   api:
     container_name: notpal_django
@@ -23,6 +59,14 @@ services:
       - postgres
     restart: unless-stopped
     entrypoint: ./entrypoint.sh
+    networks:
+      - notpal_prod_network
 
 volumes:
     pgdata:
+    static_root:
+    media_storage:
+
+networks:
+  notpal_prod_network:
+    external: true
